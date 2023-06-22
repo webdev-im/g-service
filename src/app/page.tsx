@@ -17,9 +17,9 @@ export default function Container() {
         description="Visos automechaniku paslaugos Siauliuose"
       />
       <ChakraProvider>
-        <VStack minH="100vh" minW="100vw">
+        <VStack justify="space-between" minH="100vh">
           <Header />
-          <VStack minH="80vh">
+          <VStack>
             <Image
               src={colorMode === "light" ? "carDay.png" : "carNight.png"}
               minH={{ md: "65vh" }}

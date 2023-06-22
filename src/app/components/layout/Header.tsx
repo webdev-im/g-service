@@ -36,6 +36,7 @@ import {
 import { PiMapPinBold, PiPhoneBold } from "react-icons/pi";
 
 import { CgDetailsMore } from "react-icons/cg";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { LiaInfoSolid } from "react-icons/lia";
 import React from "react";
 import { UseChangeTheme } from "../functions/hooks/useChangeTheme";
@@ -99,11 +100,7 @@ const Header = ({ onClick }: HeaderProps) => {
               />
             </Flex>
           </Tooltip>
-          <Tooltip label="Paslaugos">
-            <Flex onClick={onDrawerOpen} cursor="pointer">
-              <CgDetailsMore fontSize="22px" className="shaking" />
-            </Flex>
-          </Tooltip>
+
           <Tooltip label="Apie mus">
             <Flex
               onClick={() => {
@@ -112,6 +109,11 @@ const Header = ({ onClick }: HeaderProps) => {
               cursor="pointer"
             >
               <LiaInfoSolid fontSize="22px" className="shaking" />
+            </Flex>
+          </Tooltip>
+          <Tooltip label="Paslaugos">
+            <Flex onClick={onDrawerOpen} cursor="pointer">
+              <GiHamburgerMenu fontSize="22px" className="shaking" />
             </Flex>
           </Tooltip>
         </HStack>
