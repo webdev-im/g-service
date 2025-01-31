@@ -12,10 +12,7 @@ export default function Container() {
 
   return (
     <React.Fragment>
-      <NextSeo
-        title="G Service"
-        description="Visos automechaniku paslaugos Siauliuose"
-      />
+   
       <ChakraProvider>
         <VStack justify="space-between" minH="100vh">
           <Header />

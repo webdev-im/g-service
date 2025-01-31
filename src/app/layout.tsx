@@ -1,30 +1,34 @@
+'use client'
 import "./globals.css";
 
-import { Inter } from "next/font/google";
+import ClientProviders from "./components/action/ClientProviders";
+import { Metadata } from "next";
+import { getTranslations } from "@/src/app/lib/i18n"; // ✅ Correct import
 
-// If loading a variable font, you don't need to specify the font weight
-const inter = Inter({ subsets: ["latin"] });
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
+  const locale = params.locale || "en";
+  const t = getTranslations(locale); // ✅ Now correctly defined
+
+  return {
+    title: t.metadata.title,
+    description: t.metadata.description,
+    openGraph: {
+      title: t.metadata.title,
+      description: t.metadata.description,
+      images: t.metadata.image,
+    },
+    icons: {
+      icon: t.metadata.image,
+    },
+  };
+}
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className} suppressHydrationWarning={true}>
-        {children}
+      <body suppressHydrationWarning={true}>
+        <ClientProviders>{children}</ClientProviders>
       </body>
     </html>
   );
 }
-
-export const metadata = {
-  title: "G Service",
-  description: "Visos automechaniku paslaugos Siauliuose",
-  image: "favicon.ico",
-  openGraph: {
-    title: "G Service",
-    description: "Visos automechaniku paslaugos Siauliuose",
-    image: "favicon.ico",
-  },
-};

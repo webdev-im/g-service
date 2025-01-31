@@ -37,6 +37,7 @@ import { PiMapPinBold, PiPhoneBold } from "react-icons/pi";
 
 import { CgDetailsMore } from "react-icons/cg";
 import { GiHamburgerMenu } from "react-icons/gi";
+import LanguageSelect from "../action/LanguageSelect";
 import { LiaInfoSolid } from "react-icons/lia";
 import React from "react";
 import { UseChangeTheme } from "../functions/hooks/useChangeTheme";
@@ -119,6 +120,7 @@ const Header = ({ onClick }: HeaderProps) => {
         </HStack>
         {/* theme changer  */}
         <UseChangeTheme />
+        <LanguageSelect />
       </HStack>
       <Modal isOpen={isModalOpen} onClose={onModalClose} size="xl">
         <ModalOverlay />
